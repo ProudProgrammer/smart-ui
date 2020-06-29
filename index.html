@@ -2,21 +2,55 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Smart Platform UI</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Smart Platform UI</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function append(value) {
+            $('#data').append($('<div>', {
+                text: value
+            }));
+        }
+
+        $(document).ready(function () {
+            $("button").click(function () {
+                $('#data').empty();
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:8080/retrieve/lottery/five-out-of-ninety/numbers?generatorType=experimental',
+                    data: {
+                        get_param: 'value'
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $.each(data, function (index, element) {
+                            append(element);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
-        <script src="" async defer></script>
-        <div>Smart Platform UI</div>
-    </body>
+
+    <script src="" async defer></script>
+    <div>Smart Platform UI</div>
+    <button>Draw Numbers</button>
+    <div id="data">test</div>
+</body>
+
 </html>
