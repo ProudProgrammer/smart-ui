@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 <!--<![endif]-->
@@ -9,48 +12,47 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Smart Platform UI</title>
+    <title>Smart Platform</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style\layout.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        function append(value) {
-            $('#data').append($('<div>', {
-                text: value
-            }));
-        }
-
-        $(document).ready(function () {
-            $("button").click(function () {
-                $('#data').empty();
-                $.ajax({
-                    type: 'GET',
-                    url: 'http://localhost:8080/retrieve/lottery/five-out-of-ninety/numbers?generatorType=experimental',
-                    data: {
-                        get_param: 'value'
-                    },
-                    dataType: 'json',
-                    success: function (data) {
-                        $.each(data, function (index, element) {
-                            append(element);
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+    <script type="text/javascript" src="script\retrieve.lottery.js"></script>
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a>
+    to improve your experience.</p>
+<![endif]-->
 
-    <script src="" async defer></script>
-    <div>Smart Platform UI</div>
-    <button>Draw Numbers</button>
-    <div id="data">test</div>
+<script src="" async defer></script>
+
+<header>
+    <h2>Smart Platform</h2>
+</header>
+
+<section>
+    <nav>
+        <ul>
+            <li><a id="five_out_of_ninety" href="#">Ötöslottó</a></li>
+            <li><a id="six_out_of_forty_five" href="#">Hatoslottó</a></li>
+            <li><a id="scandinavian" href="#">Skandináv lottó</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <h1>Lottó sorsolás</h1>
+        <p>Válassz egy lottó típust</p>
+        <p>Új nyerőszámok sorsolásához kattints a lottótípus nevére</p>
+    </article>
+</section>
+
+<footer>
+    <p>2020 Smart Platform</p>
+</footer>
+
 </body>
 
 </html>
+
