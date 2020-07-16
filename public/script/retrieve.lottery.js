@@ -4,15 +4,24 @@ function append(value) {
     }));
 }
 
+function setHeaders(request) {
+    request.setRequestHeader("Consumer-Name", "Smart-ui");
+    request.setRequestHeader("Request-Id", "smartui0-0000-0000-0000-postman00000");
+    request.setRequestHeader("Locale", "hu-HU");
+}
+
 $(document).ready(function () {
     $("#five_out_of_ninety").click(function () {
         $('section>article').empty();
         $.ajax({
             type: 'GET',
+            beforeSend: function (request) {
+                setHeaders(request);
+            },
             url: 'http://localhost:8080/retrieve/lottery/five-out-of-ninety/numbers?generatorType=experimental',
             dataType: 'json',
             success: function (data) {
-                append(data.drawnNumbers);
+                append(data.generatedNumbers);
             }
         });
     });
@@ -20,10 +29,13 @@ $(document).ready(function () {
         $('section>article').empty();
         $.ajax({
             type: 'GET',
+            beforeSend: function (request) {
+                setHeaders(request);
+            },
             url: 'http://localhost:8080/retrieve/lottery/six-out-of-forty-five/numbers',
             dataType: 'json',
             success: function (data) {
-                append(data.drawnNumbers);
+                append(data.generatedNumbers);
             }
         });
     });
@@ -31,10 +43,13 @@ $(document).ready(function () {
         $('section>article').empty();
         $.ajax({
             type: 'GET',
+            beforeSend: function (request) {
+                setHeaders(request);
+            },
             url: 'http://localhost:8080/retrieve/lottery/scandinavian/numbers',
             dataType: 'json',
             success: function (data) {
-                append(data.drawnNumbers);
+                append(data.generatedNumbers);
             }
         });
     });
