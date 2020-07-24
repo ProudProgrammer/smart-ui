@@ -53,4 +53,18 @@ $(document).ready(function () {
             }
         });
     });
+    $("#joker").click(function () {
+        $('section>article').empty();
+        $.ajax({
+            type: 'GET',
+            beforeSend: function (request) {
+                setHeaders(request);
+            },
+            url: 'http://localhost:8080/retrieve/lottery/joker/numbers',
+            dataType: 'json',
+            success: function (data) {
+                append(data.generatedNumbers);
+            }
+        });
+    });
 });
