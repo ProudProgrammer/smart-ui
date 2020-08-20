@@ -1,5 +1,13 @@
 # Smart Platform - UI
 UI for Smart Platform
+### Build
+```
+$ docker build -t smart-ui .
+```
+### Start
+```
+$ docker run -d -p 8002:8002 smart-ui
+```
 ### Tools
 - Public URLs for sending previews: https://ngrok.com/
 ### System architecture of Smart Platform
