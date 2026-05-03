@@ -1,9 +1,14 @@
-FROM node
-ENV DIRPATH /smart-ui
-COPY server.js $DIRPATH/server.js
-COPY package.json $DIRPATH/package.json
-ADD public $DIRPATH/public
-WORKDIR $DIRPATH
-RUN npm install 
+FROM node:20-alpine
+
+WORKDIR /smart-ui
+
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY server.js ./
+COPY public ./public
+
+USER node
+
 EXPOSE 8001
-CMD ["npm","start"]
+CMD ["node", "server.js"]
