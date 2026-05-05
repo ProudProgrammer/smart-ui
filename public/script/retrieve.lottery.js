@@ -1,5 +1,5 @@
 function append(value) {
-    $('section>article').append($('<h1>', {
+    $('section>article').append($('<h2>', {
         text: value
     }));
 }
@@ -10,17 +10,17 @@ function setHeaders(request) {
     request.setRequestHeader("Locale", "hu-HU");
 }
 
-$(document).ready(function () {
-    $("#five_out_of_ninety").click(function () {
+$(document).ready(function() {
+    $("#five_out_of_ninety").click(function() {
         $('section>article').empty();
         $.ajax({
             type: 'GET',
-            beforeSend: function (request) {
+            beforeSend: function(request) {
                 setHeaders(request);
             },
             url: 'http://localhost:8080/retrieve/lottery/five-out-of-ninety/numbers?generatorType=experimental',
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 append(data.generatedNumbers);
             },
             error: function(xhr, status, error) {
@@ -28,16 +28,16 @@ $(document).ready(function () {
             }
         });
     });
-    $("#six_out_of_forty_five").click(function () {
+    $("#six_out_of_forty_five").click(function() {
         $('section>article').empty();
         $.ajax({
             type: 'GET',
-            beforeSend: function (request) {
+            beforeSend: function(request) {
                 setHeaders(request);
             },
             url: 'http://localhost:8080/retrieve/lottery/six-out-of-forty-five/numbers',
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 append(data.generatedNumbers);
             },
             error: function(xhr, status, error) {
@@ -45,16 +45,16 @@ $(document).ready(function () {
             }
         });
     });
-    $("#scandinavian").click(function () {
+    $("#scandinavian").click(function() {
         $('section>article').empty();
         $.ajax({
             type: 'GET',
-            beforeSend: function (request) {
+            beforeSend: function(request) {
                 setHeaders(request);
             },
             url: 'http://localhost:8080/retrieve/lottery/scandinavian/numbers',
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 append(data.generatedNumbers);
             },
             error: function(xhr, status, error) {
@@ -66,12 +66,12 @@ $(document).ready(function () {
         $('section>article').empty();
         $.ajax({
             type: 'GET',
-            beforeSend: function (request) {
+            beforeSend: function(request) {
                 setHeaders(request);
             },
             url: 'http://localhost:8080/retrieve/lottery/joker/numbers',
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 append(data.generatedNumbers);
             },
             error: function(xhr, status, error) {
