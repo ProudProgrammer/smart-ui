@@ -22,6 +22,9 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 append(data.generatedNumbers);
+            },
+            error: function(xhr, status, error) {
+                append('API is not available');
             }
         });
     });
@@ -36,6 +39,9 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 append(data.generatedNumbers);
+            },
+            error: function(xhr, status, error) {
+                append('API is not available');
             }
         });
     });
@@ -50,6 +56,9 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 append(data.generatedNumbers);
+            },
+            error: function(xhr, status, error) {
+                append('API is not available');
             }
         });
     });
@@ -64,6 +73,9 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 append(data.generatedNumbers);
+            },
+            error: function(xhr, status, error) {
+                append('API is not available');
             }
         });
     });
