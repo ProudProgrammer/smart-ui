@@ -11,4 +11,4 @@ COPY public ./public
 USER node
 
 EXPOSE 8001
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
